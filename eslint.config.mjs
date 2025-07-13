@@ -9,8 +9,12 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = [
+// eslint-disable-next-line import/no-anonymous-default-export
+export default [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      "@typescript-eslint/no-namespace": "off",
+    },
+  },
 ];
-
-export default eslintConfig;
