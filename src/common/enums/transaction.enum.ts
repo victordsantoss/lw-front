@@ -6,8 +6,7 @@ export enum TransactionType {
 export enum TransactionCategory {
   DEPOSIT = 'DEPOSIT', // Depósito
   WITHDRAWAL = 'WITHDRAWAL', // Saque
-  TRANSFER_IN = 'TRANSFER_IN', // Transferência recebida
-  TRANSFER_OUT = 'TRANSFER_OUT', // Transferência enviada
+  TRANSFER = 'TRANSFER', // Transferência
   PAYMENT = 'PAYMENT', // Pagamento
   FEE = 'FEE', // Taxa
   INTEREST = 'INTEREST', // Juros

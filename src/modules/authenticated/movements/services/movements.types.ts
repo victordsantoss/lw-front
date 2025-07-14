@@ -9,6 +9,9 @@ export namespace Movement {
     accountId: string;
     accountNumber: string;
     accountName: string;
+    destinationAccountId?: string;
+    destinationAccountNumber?: string;
+    destinationAccountName?: string;
   };
   export type IListMovementsResponse = IPaginatedResponse<IListMovementItem>;
 }

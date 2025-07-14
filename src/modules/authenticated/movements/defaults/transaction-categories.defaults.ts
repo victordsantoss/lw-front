@@ -1,10 +1,9 @@
-import { TransactionCategory, TransactionType } from "@/common/enums/transaction.enum";
+import { TransactionCategory } from "@/common/enums/transaction.enum";
 
 export const TRANSACTION_CATEGORY_LABELS = {
   [TransactionCategory.DEPOSIT]: 'Depósito',
   [TransactionCategory.WITHDRAWAL]: 'Saque',
-  [TransactionCategory.TRANSFER_IN]: 'Transferência Recebida',
-  [TransactionCategory.TRANSFER_OUT]: 'Transferência Enviada',
+  [TransactionCategory.TRANSFER]: 'Transferência',
   [TransactionCategory.PAYMENT]: 'Pagamento',
   [TransactionCategory.FEE]: 'Taxa',
   [TransactionCategory.INTEREST]: 'Juros',
@@ -15,8 +14,7 @@ export const TRANSACTION_CATEGORY_LABELS = {
 export const TRANSACTION_CATEGORY_DESCRIPTIONS = {
   [TransactionCategory.DEPOSIT]: 'Depósito',
   [TransactionCategory.WITHDRAWAL]: 'Saque',
-  [TransactionCategory.TRANSFER_IN]: 'Transferência Recebida',
-  [TransactionCategory.TRANSFER_OUT]: 'Transferência Enviada',
+  [TransactionCategory.TRANSFER]: 'Transferência',
   [TransactionCategory.PAYMENT]: 'Pagamento',
   [TransactionCategory.FEE]: 'Taxa',
   [TransactionCategory.INTEREST]: 'Juros',
