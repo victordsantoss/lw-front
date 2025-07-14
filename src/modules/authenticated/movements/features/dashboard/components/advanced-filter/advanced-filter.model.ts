@@ -22,9 +22,9 @@ export const useAdvancedFilterModel = () => {
   const { replace } = useRouter();
   const pathname = usePathname();
   const [filters, setFilters] = useState<IFilterState>({
-    category: searchParams.get('category') || '',
-    transactionType: searchParams.get('transactionType') || '',
-    accountId: searchParams.get('accountId') || '',
+    category: searchParams.get('category') || null,
+    transactionType: searchParams.get('transactionType') || null,
+    accountId: searchParams.get('accountId') || null,
   });
 
   const { data: accountsData } = useQuery<Account.IListAccountsResponse, Error>({

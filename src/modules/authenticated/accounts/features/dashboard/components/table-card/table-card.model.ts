@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export const useAccountTableCardModel = () => {
+  const router = useRouter();
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
@@ -13,15 +15,19 @@ export const useAccountTableCardModel = () => {
     setAnchorEl(null);
   };
 
-  const onView = (id: string) => {
-    console.log(id);
+  const onView = (accountId: string) => {
+    handleClosePopover();
+    router.push(`/movements?accountId=${accountId}`);
   };
+
   const onEdit = (id: string) => {
-    console.log(id);
+    handleClosePopover();
+    console.log('Edit account:', id);
   };
 
   const onDelete = (id: string) => {
-    console.log(id);
+    handleClosePopover();
+    console.log('Delete account:', id);
   };
 
   return {
