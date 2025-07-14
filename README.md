@@ -15,25 +15,30 @@ Sistema frontend para cadastro de contas e gerenciamento de movimentações fina
 
 ## 📸 Screenshots
 
+### Registro e Autenticação
+
+<img width="1654" height="830" alt="Captura de Tela 2025-07-14 às 09 42 33" src="https://github.com/user-attachments/assets/f573bb1d-fd93-4e73-9365-fc821d4254df" />
+<img width="1664" height="834" alt="Captura de Tela 2025-07-14 às 09 42 26" src="https://github.com/user-attachments/assets/184762a2-e4c0-4723-b6c0-86466661dfe9" />
+
 ### Dashboard de Contas
 
-<!-- Adicione aqui o screenshot do dashboard de contas -->
+<img width="1672" height="834" alt="Captura de Tela 2025-07-14 às 09 54 30" src="https://github.com/user-attachments/assets/6578d624-f774-4a72-8290-44f61a5c1f4c" />
 
 ### Cadastro de Contas
 
-<!-- Adicione aqui o screenshot do cadastro de contas -->
+<img width="1662" height="893" alt="Captura de Tela 2025-07-14 às 10 23 19" src="https://github.com/user-attachments/assets/f51f428b-4ec4-4ed7-8c11-f4ce7f186c11" />
 
 ### Dashboard de Movimentações
 
-<!-- Adicione aqui o screenshot do dashboard de movimentações -->
+<img width="1667" height="835" alt="Captura de Tela 2025-07-14 às 09 57 56" src="https://github.com/user-attachments/assets/49a71b1a-a4f7-49b9-b451-85c60fbfe245" />
+
 
 ### Cadastro de Movimentações
-
-<!-- Adicione aqui o screenshot do cadastro de movimentações -->
+<img width="1668" height="900" alt="Captura de Tela 2025-07-14 às 10 22 59" src="https://github.com/user-attachments/assets/b9602c5b-18f3-4932-b9c6-8359e9ce7d7f" />
 
 ### Filtros Avançados
 
-<!-- Adicione aqui o screenshot dos filtros avançados -->
+<img width="1662" height="605" alt="Captura de Tela 2025-07-14 às 10 24 49" src="https://github.com/user-attachments/assets/e21c5d7e-5af9-4c37-a5b9-db3cab1df6e3" />
 
 ## 🛠️ Como Rodar
 
