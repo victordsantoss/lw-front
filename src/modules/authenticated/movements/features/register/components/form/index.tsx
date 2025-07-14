@@ -9,4 +9,4 @@ const RegisterMovementFormViewModel = () => {
   return <RegisterMovementFormView {...methods} />;
 };
 
-export default RegisterMovementFormViewModel; 
+export default RegisterMovementFormViewModel;

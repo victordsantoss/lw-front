@@ -10,10 +10,10 @@ export const TextFieldStyles: FilledInputOverrides = {
   MuiInputBase: {
     styleOverrides: {
       input: {
-        color: 'black', // Garante que o texto digitado fique preto
+        color: 'black',
         '&::placeholder': {
           color: 'black',
-          opacity: 1, // Garante visibilidade do placeholder
+          opacity: 1,
         },
       },
     },

@@ -64,7 +64,7 @@ export const RegisterFormView = (props: IRegisterFormViewProps) => {
                 {...field}
                 label="Nome *"
                 fullWidth
-                placeholder="Agrodog S. S"
+                placeholder="Jhon Doe"
                 error={!!fieldState.error}
                 helperText={fieldState.error?.message}
                 variant="outlined"

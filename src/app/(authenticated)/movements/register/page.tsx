@@ -4,4 +4,4 @@ import MovementRegisterViewModel from '@/modules/authenticated/movements/feature
 
 export default function MovementRegisterPage() {
   return <MovementRegisterViewModel />;
-} 
+}

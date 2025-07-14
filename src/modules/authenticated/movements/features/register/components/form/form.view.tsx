@@ -54,16 +54,11 @@ const RegisterMovementFormView: React.FC<RegisterMovementFormViewProps> = ({
   return (
     <Box sx={{ p: { xs: 1, md: 3 } }}>
       <Paper elevation={2} sx={{ p: { xs: 2, md: 4 } }}>
-        <Typography variant="h4" gutterBottom color='primary.main'>
+        <Typography variant="h4" gutterBottom color="primary.main">
           Registrar Movimentação Financeira
         </Typography>
 
-        <Box
-          component="form"
-          onSubmit={handleSubmit(handleFormSubmit)}
-          sx={{ mt: 3 }}
-          noValidate
-        >
+        <Box component="form" onSubmit={handleSubmit(handleFormSubmit)} sx={{ mt: 3 }} noValidate>
           <FormProvider {...methods}>
             <Box sx={{ ...formStyles.formContainer, gap: 3, color: 'text.primary' }}>
               <Controller
@@ -73,7 +68,7 @@ const RegisterMovementFormView: React.FC<RegisterMovementFormViewProps> = ({
                   <Autocomplete
                     {...field}
                     options={movementTypeOptions}
-                    getOptionLabel={(option) => option.label}
+                    getOptionLabel={option => option.label}
                     value={movementTypeOptions.find(option => option.value === field.value) || null}
                     onChange={(_, newValue) => {
                       field.onChange(newValue?.value || 'deposit');
@@ -82,7 +77,7 @@ const RegisterMovementFormView: React.FC<RegisterMovementFormViewProps> = ({
                       }
                     }}
                     disabled={isFormDisabled}
-                    renderInput={(params) => (
+                    renderInput={params => (
                       <TextField
                         {...params}
                         label="Tipo de Movimentação *"
@@ -110,7 +105,9 @@ const RegisterMovementFormView: React.FC<RegisterMovementFormViewProps> = ({
                   <Autocomplete
                     {...field}
                     options={accountsData}
-                    getOptionLabel={(option) => `${option.accountNumber} - ${option.name || 'Sem nome'}`}
+                    getOptionLabel={option =>
+                      `${option.accountNumber} - ${option.name || 'Sem nome'}`
+                    }
                     value={accountsData.find(option => option.id === field.value) || null}
                     onChange={(_, newValue) => {
                       field.onChange(newValue?.id || '');
@@ -121,13 +118,11 @@ const RegisterMovementFormView: React.FC<RegisterMovementFormViewProps> = ({
                     }}
                     disabled={isFormDisabled || isLoadingAccounts}
                     loading={isLoadingAccounts}
-                    renderInput={(params) => (
+                    renderInput={params => (
                       <TextField
                         {...params}
                         label={
-                          watchedType === 'deposit'
-                            ? 'Conta de Destino *'
-                            : 'Conta de Origem *'
+                          watchedType === 'deposit' ? 'Conta de Destino *' : 'Conta de Origem *'
                         }
                         error={!!errors.origin}
                         helperText={errors.origin?.message}
@@ -154,14 +149,16 @@ const RegisterMovementFormView: React.FC<RegisterMovementFormViewProps> = ({
                     <Autocomplete
                       {...field}
                       options={destinationAccounts}
-                      getOptionLabel={(option) => `${option.accountNumber} - ${option.name || 'Sem nome'}`}
+                      getOptionLabel={option =>
+                        `${option.accountNumber} - ${option.name || 'Sem nome'}`
+                      }
                       value={destinationAccounts.find(option => option.id === field.value) || null}
                       onChange={(_, newValue) => {
                         field.onChange(newValue?.id || '');
                       }}
                       disabled={isFormDisabled || isLoadingAccounts}
                       loading={isLoadingAccounts}
-                      renderInput={(params) => (
+                      renderInput={params => (
                         <TextField
                           {...params}
                           label="Conta de Destino *"
@@ -193,10 +190,6 @@ const RegisterMovementFormView: React.FC<RegisterMovementFormViewProps> = ({
                     label="Valor *"
                     placeholder="Ex: 1000.00"
                     type="number"
-                    inputProps={{
-                      min: 0,
-                      step: 0.01,
-                    }}
                     fullWidth
                     error={!!errors.balance}
                     helperText={errors.balance?.message}
@@ -227,13 +220,16 @@ const RegisterMovementFormView: React.FC<RegisterMovementFormViewProps> = ({
             </Box>
           </FormProvider>
 
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end', mt: { xs: 2, md: 4 }, flexDirection: { xs: 'column', md: 'row' } }}>
-            <Button
-              variant="outlined"
-              onClick={onCancel}
-              disabled={isFormDisabled}
-              size="large"
-            >
+          <Box
+            sx={{
+              display: 'flex',
+              gap: 2,
+              justifyContent: 'flex-end',
+              mt: { xs: 2, md: 4 },
+              flexDirection: { xs: 'column', md: 'row' },
+            }}
+          >
+            <Button variant="outlined" onClick={onCancel} disabled={isFormDisabled} size="large">
               Cancelar
             </Button>
             <Button
@@ -251,4 +247,4 @@ const RegisterMovementFormView: React.FC<RegisterMovementFormViewProps> = ({
   );
 };
 
-export default RegisterMovementFormView; 
+export default RegisterMovementFormView;

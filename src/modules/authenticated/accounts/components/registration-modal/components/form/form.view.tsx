@@ -191,6 +191,7 @@ const RegistrationAccountFormView: React.FC<RegistrationAccountFormViewProps> = 
                 placeholder="Ex: 1000"
                 fullWidth
                 type="number"
+                value={field.value || 0}
                 error={!!errors.balance}
                 helperText={errors.balance?.message}
                 variant="outlined"

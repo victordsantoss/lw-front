@@ -14,4 +14,4 @@ export const RegisterMovementView = () => {
       <RegisterMovementFormViewModel />
     </Box>
   );
-}; 
+};

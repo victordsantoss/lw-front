@@ -1,17 +1,13 @@
 'use client';
 
 import { Box, Stack, Typography } from '@mui/material';
-import SearchOffIcon from '@mui/icons-material/SearchOff'; // ícone padrão
+import SearchOffIcon from '@mui/icons-material/SearchOff';
 import React from 'react';
 
 export interface EmptyStateProps {
-  /** Mensagem principal exibida ao usuário */
   title?: string;
-  /** Texto secundário opcional */
   subtitle?: string;
-  /** Ícone (ou qualquer ReactNode) a ser mostrado acima do texto */
   icon?: React.ReactNode;
-  /** Tamanho do ícone (`small` | `medium` | `large` | número) */
   iconSize?: 'small' | 'medium' | 'large' | number;
 }
 

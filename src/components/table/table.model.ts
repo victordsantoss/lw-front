@@ -4,9 +4,7 @@ import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
 export interface ITableModelProps {
-  /** limite padrão caso não exista na URL */
   limit?: number;
-  /** página padrão caso não exista na URL */
   page: number;
 }
 

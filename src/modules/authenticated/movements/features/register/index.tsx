@@ -9,4 +9,4 @@ const MovementRegisterViewModel = () => {
   return <RegisterMovementView {...methods} />;
 };
 
-export default MovementRegisterViewModel; 
+export default MovementRegisterViewModel;

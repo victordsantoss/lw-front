@@ -14,7 +14,6 @@ const MovementTableCardView = ({ item }: IMovementTableCardViewProps) => {
   const isTransfer = item.category === TransactionCategory.TRANSFER;
   const isDeposit = item.category === TransactionCategory.DEPOSIT;
 
-  console.log('item', item);
   return (
     <Box
       width="100%"
@@ -30,13 +29,15 @@ const MovementTableCardView = ({ item }: IMovementTableCardViewProps) => {
         sx={{ width: '100%', display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2 }}
       >
         <Box width={{ xs: '100%', md: '25%' }}>
-          {!isDeposit && <Typography variant="body2">
-            Número da Conta:{' '}
-            <span style={{ fontWeight: 'bold' }}>
-              {item.accountNumber}
-              {item.accountName && ` - ${item.accountName}`}
-            </span>
-          </Typography>}
+          {!isDeposit && (
+            <Typography variant="body2">
+              Número da Conta:{' '}
+              <span style={{ fontWeight: 'bold' }}>
+                {item.accountNumber}
+                {item.accountName && ` - ${item.accountName}`}
+              </span>
+            </Typography>
+          )}
           {(isTransfer || isDeposit) && (
             <Typography variant="body2">
               Número da Conta Destino:{' '}

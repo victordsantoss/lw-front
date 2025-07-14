@@ -17,27 +17,20 @@ export const useRegisterMovementFormModel = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // Ler parâmetros da URL para pré-preencher o formulário
   const urlType = searchParams.get('type') as 'deposit' | 'withdraw' | 'transfer' | null;
   const urlAccountId = searchParams.get('accountId');
 
-  // Definir valores padrão baseados nos parâmetros da URL
   const getDefaultOrigin = () => {
     if (urlType === 'deposit') {
-      // Para depósito, a conta da URL é o destino, então origin fica vazio
       return '';
     }
-    // Para saque e transferência, a conta da URL é a origem
     return urlAccountId || '';
   };
 
   const getDefaultDestination = () => {
     if (urlType === 'deposit') {
-      console.log('urlAccountId', urlAccountId);
-      // Para depósito, a conta da URL é o destino
       return urlAccountId || '';
     }
-    // Para outros tipos, destino fica vazio
     return '';
   };
 
@@ -47,7 +40,7 @@ export const useRegisterMovementFormModel = () => {
       type: urlType || 'deposit',
       origin: getDefaultOrigin(),
       destination: getDefaultDestination(),
-      balance: undefined,
+      balance: 0,
       description: '',
     },
   });
@@ -56,14 +49,15 @@ export const useRegisterMovementFormModel = () => {
   const watchedType = watch('type');
   const watchedOrigin = watch('origin');
 
-  // Buscar lista de contas disponíveis
-  const { data: accountsData, isLoading: isLoadingAccounts } = useQuery<Account.IListAccountsResponse, Error>({
+  const { data: accountsData, isLoading: isLoadingAccounts } = useQuery<
+    Account.IListAccountsResponse,
+    Error
+  >({
     queryKey: ['accounts'],
     queryFn: () => AccountService.list({ page: 1, limit: 100 }),
     staleTime: 5 * 60 * 1000,
   });
 
-  // Filtrar contas para destino (remove a conta de origem selecionada)
   const destinationAccounts = useMemo(() => {
     if (!accountsData?.data || !watchedOrigin) {
       return accountsData?.data || [];
@@ -71,7 +65,6 @@ export const useRegisterMovementFormModel = () => {
     return accountsData.data.filter(account => account.id !== watchedOrigin);
   }, [accountsData?.data, watchedOrigin]);
 
-  // Opções para tipo de movimentação
   const movementTypeOptions = [
     { value: 'deposit', label: 'Depósito' },
     { value: 'withdraw', label: 'Saque' },
@@ -102,8 +95,9 @@ export const useRegisterMovementFormModel = () => {
     const payload: Movement.IRegisterMovementRequest = {
       type: data.type,
       origin: data.type === 'deposit' ? '' : data.origin,
-      destination: data.type === 'withdraw' ? data.destination : data.type === 'deposit' ? data.origin : '',
-      balance: data.balance,
+      destination:
+        data.type === 'withdraw' ? data.destination : data.type === 'deposit' ? data.origin : '',
+      balance: data.balance || 0,
       description: data.description,
     };
 
@@ -129,4 +123,4 @@ export const useRegisterMovementFormModel = () => {
     destinationAccounts,
     isLoadingAccounts,
   };
-}; 
+};

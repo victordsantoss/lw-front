@@ -46,7 +46,6 @@ const AccountTableCardView = ({
   handleTransfer,
   handleWithdraw,
 }: IAccountTableCardViewProps) => {
-  console.log(item);
   return (
     <Box
       width="100%"
