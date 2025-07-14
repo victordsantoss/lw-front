@@ -30,14 +30,14 @@ const MovementTableCardView = ({ item }: IMovementTableCardViewProps) => {
         sx={{ width: '100%', display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2 }}
       >
         <Box width={{ xs: '100%', md: '25%' }}>
-          <Typography variant="body2">
+          {!isDeposit && <Typography variant="body2">
             Número da Conta:{' '}
             <span style={{ fontWeight: 'bold' }}>
               {item.accountNumber}
               {item.accountName && ` - ${item.accountName}`}
             </span>
-          </Typography>
-          {isTransfer || isDeposit && (
+          </Typography>}
+          {(isTransfer || isDeposit) && (
             <Typography variant="body2">
               Número da Conta Destino:{' '}
               <span style={{ fontWeight: 'bold' }}>

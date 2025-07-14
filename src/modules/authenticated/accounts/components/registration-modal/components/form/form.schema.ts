@@ -24,16 +24,8 @@ const RegistrationAccountSchema = z.object({
     .min(3, 'O código do banco deve ter pelo menos 3 caracteres')
     .max(10, 'O código do banco deve ter no máximo 10 caracteres'),
   balance: z
-    .string({ required_error: 'O saldo inicial é obrigatório' })
+    .string()
     .optional()
-    .transform(val => {
-      if (!val || val === '') return 0;
-      const num = parseFloat(val);
-      return isNaN(num) ? 0 : num;
-    })
-    .refine(val => val >= 0, {
-      message: 'O saldo inicial deve ser positivo',
-    }),
 });
 
 type RegistrationAccountFormValues = z.infer<typeof RegistrationAccountSchema>;
