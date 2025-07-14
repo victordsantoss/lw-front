@@ -28,9 +28,10 @@ interface IAccountTableCardViewProps {
   handleClosePopover: () => void;
   open: boolean;
   id: string | undefined;
-  onView: (id: string) => void;
-  onEdit: (id: string) => void;
-  onDelete: (id: string) => void;
+  handleView: (id: string) => void;
+  handleAddBalance: (id: string) => void;
+  handleTransfer: (id: string) => void;
+  handleWithdraw: (id: string) => void;
 }
 
 const AccountTableCardView = ({
@@ -40,9 +41,10 @@ const AccountTableCardView = ({
   handleClosePopover,
   open,
   id,
-  onView,
-  onEdit,
-  onDelete,
+  handleView,
+  handleAddBalance,
+  handleTransfer,
+  handleWithdraw,
 }: IAccountTableCardViewProps) => {
   console.log(item);
   return (
@@ -120,7 +122,7 @@ const AccountTableCardView = ({
           component="nav"
           aria-labelledby="nested-list-subheader"
         >
-          <ListItemButton onClick={() => onView(item.id)}>
+          <ListItemButton onClick={() => handleView(item.id)}>
             <ListItemIcon>
               <SummarizeIcon color="primary" />
             </ListItemIcon>
@@ -131,36 +133,36 @@ const AccountTableCardView = ({
               }}
             />
           </ListItemButton>
-          <ListItemButton onClick={() => onView(item.id)}>
+          <ListItemButton onClick={() => handleAddBalance(item.id)}>
             <ListItemIcon>
               <AccountBalanceWalletIcon color="success" />
             </ListItemIcon>
             <ListItemText
-              primary="Adicionar Saldo"
+              primary="Fazer Depósito"
               sx={{
                 color: 'success.main',
               }}
             />
           </ListItemButton>
-          <ListItemButton onClick={() => onEdit(item.id)}>
+          <ListItemButton onClick={() => handleTransfer(item.id)}>
             <ListItemIcon>
-              <PaidIcon color="error" />
+              <PaidIcon color="warning" />
             </ListItemIcon>
             <ListItemText
-              primary="Realizar Débito"
+              primary="Fazer Transferência"
               sx={{
-                color: 'error.main',
+                color: 'warning.main',
               }}
             />
           </ListItemButton>
-          <ListItemButton onClick={() => onDelete(item.id)}>
+          <ListItemButton onClick={() => handleWithdraw(item.id)}>
             <ListItemIcon>
-              <MoveDownIcon color="primary" />
+              <MoveDownIcon color="error" />
             </ListItemIcon>
             <ListItemText
-              primary="Realizar Transferência"
+              primary="Fazer Saque"
               sx={{
-                color: 'primary.main',
+                color: 'error.main',
               }}
             />
           </ListItemButton>

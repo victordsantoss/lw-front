@@ -4,7 +4,7 @@ import { useAlert } from '@/contexts/alert.context';
 import { isAxiosError } from 'axios';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { MovementService } from '@/modules/authenticated/movements/services';
 import { Movement } from '@/modules/authenticated/movements/services/movements.types';
 import { AccountService } from '@/modules/authenticated/accounts/services/accounts';
@@ -15,12 +15,17 @@ import { revalidateMovementsDashboard } from '@/modules/authenticated/movements/
 export const useRegisterMovementFormModel = () => {
   const { showAlert } = useAlert();
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const urlType = searchParams.get('type') as 'deposit' | 'withdrawal' | 'transfer' | null;
+  const urlAccountId = searchParams.get('accountId');
+
 
   const methods = useForm<RegisterMovementFormValues>({
     resolver: zodResolver(RegisterMovementSchema),
     defaultValues: {
-      type: 'deposit',
-      origin: '',
+      type: urlType || 'deposit',
+      origin: urlAccountId || '',
       destination: '',
       balance: undefined,
       description: '',
@@ -31,14 +36,12 @@ export const useRegisterMovementFormModel = () => {
   const watchedType = watch('type');
   const watchedOrigin = watch('origin');
 
-  // Buscar lista de contas disponíveis
   const { data: accountsData, isLoading: isLoadingAccounts } = useQuery<Account.IListAccountsResponse, Error>({
     queryKey: ['accounts'],
     queryFn: () => AccountService.list({ page: 1, limit: 100 }),
     staleTime: 5 * 60 * 1000,
   });
 
-  // Filtrar contas para destino (remove a conta de origem selecionada)
   const destinationAccounts = useMemo(() => {
     if (!accountsData?.data || !watchedOrigin) {
       return accountsData?.data || [];
@@ -46,7 +49,6 @@ export const useRegisterMovementFormModel = () => {
     return accountsData.data.filter(account => account.id !== watchedOrigin);
   }, [accountsData?.data, watchedOrigin]);
 
-  // Opções para tipo de movimentação
   const movementTypeOptions = [
     { value: 'deposit', label: 'Depósito' },
     { value: 'withdrawal', label: 'Saque' },

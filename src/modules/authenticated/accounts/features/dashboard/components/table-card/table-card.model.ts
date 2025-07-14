@@ -15,19 +15,24 @@ export const useAccountTableCardModel = () => {
     setAnchorEl(null);
   };
 
-  const onView = (accountId: string) => {
+  const handleView = (accountId: string) => {
     handleClosePopover();
     router.push(`/movements?accountId=${accountId}`);
   };
 
-  const onEdit = (id: string) => {
+  const handleAddBalance = (accountId: string) => {
     handleClosePopover();
-    console.log('Edit account:', id);
+    router.push(`/movements/register?type=deposit&accountId=${accountId}`);
   };
 
-  const onDelete = (id: string) => {
+  const handleTransfer = (accountId: string) => {
     handleClosePopover();
-    console.log('Delete account:', id);
+    router.push(`/movements/register?type=transfer&accountId=${accountId}`);
+  };
+
+  const handleWithdraw = (accountId: string) => {
+    handleClosePopover();
+    router.push(`/movements/register?type=withdrawal&accountId=${accountId}`);
   };
 
   return {
@@ -36,8 +41,9 @@ export const useAccountTableCardModel = () => {
     handleClosePopover,
     open,
     id,
-    onView,
-    onEdit,
-    onDelete,
+    handleView,
+    handleAddBalance,
+    handleTransfer,
+    handleWithdraw,
   };
 };
