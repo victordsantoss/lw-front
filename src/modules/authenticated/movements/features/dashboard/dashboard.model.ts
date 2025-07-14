@@ -1,7 +1,9 @@
 import { Option } from '@/components/filter/filter.types';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export const useMovementDashboardModel = () => {
+  const router = useRouter();
   const [showAlert, setShowAlert] = useState<boolean>(true);
 
   const orderOptions: Option[] = [
@@ -10,9 +12,9 @@ export const useMovementDashboardModel = () => {
     { value: 'category', label: 'Categoria' },
   ];
 
-  const onRegisterClick = () => {
-    console.log('onRegisterClick');
-  };
+  const onRegisterClick = useCallback(() => {
+    router.push('/movements/register');
+  }, [router]);
 
   return {
     orderOptions,

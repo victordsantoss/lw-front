@@ -12,5 +12,18 @@ export namespace Movement {
     destinationAccountNumber?: string;
     destinationAccountName?: string;
   };
+
   export type IListMovementsResponse = IPaginatedResponse<IListMovementItem>;
+
+  export type MovementType = 'deposit' | 'withdrawal' | 'transfer';
+
+  export type IRegisterMovementRequest = {
+    type: MovementType;
+    origin: string;
+    destination?: string;
+    balance: number;
+    description?: string;
+  };
+
+  export type IRegisterMovementResponse = AccountModelStatement;
 }
