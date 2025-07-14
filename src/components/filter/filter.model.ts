@@ -1,4 +1,4 @@
-import { SortOptionsValues, SortOptionsLabels } from '@/common/enums/transaction.enum';
+import { SortOptionsValues, SortOptionsLabels } from '@/common/enums/order-options.enum';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 import { debounce } from 'lodash';

@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import { SortOptionsValues } from '@/common/enums/transaction.enum';
+import { SortOptionsValues } from '@/common/enums/order-options.enum';
 import { FilterState } from './filter.model';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import AddIcon from '@mui/icons-material/Add';
