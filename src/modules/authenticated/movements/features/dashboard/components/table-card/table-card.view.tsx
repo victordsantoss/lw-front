@@ -12,7 +12,9 @@ interface IMovementTableCardViewProps {
 
 const MovementTableCardView = ({ item }: IMovementTableCardViewProps) => {
   const isTransfer = item.category === TransactionCategory.TRANSFER;
+  const isDeposit = item.category === TransactionCategory.DEPOSIT;
 
+  console.log('item', item);
   return (
     <Box
       width="100%"
@@ -35,7 +37,7 @@ const MovementTableCardView = ({ item }: IMovementTableCardViewProps) => {
               {item.accountName && ` - ${item.accountName}`}
             </span>
           </Typography>
-          {isTransfer && (
+          {isTransfer || isDeposit && (
             <Typography variant="body2">
               Número da Conta Destino:{' '}
               <span style={{ fontWeight: 'bold' }}>

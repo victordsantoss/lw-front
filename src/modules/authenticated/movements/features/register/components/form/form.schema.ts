@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 const RegisterMovementSchema = z.object({
-  type: z.enum(['deposit', 'withdrawal', 'transfer'] as const, {
+  type: z.enum(['deposit', 'withdraw', 'transfer'] as const, {
     required_error: 'O tipo de movimentação é obrigatório',
   }),
   origin: z.string({

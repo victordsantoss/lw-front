@@ -5,7 +5,7 @@ export enum TransactionType {
 
 export enum TransactionCategory {
   DEPOSIT = 'DEPOSIT', // Depósito
-  WITHDRAWAL = 'WITHDRAWAL', // Saque
+  WITHDRAW = 'WITHDRAW', // Saque
   TRANSFER = 'TRANSFER', // Transferência
   PAYMENT = 'PAYMENT', // Pagamento
   FEE = 'FEE', // Taxa

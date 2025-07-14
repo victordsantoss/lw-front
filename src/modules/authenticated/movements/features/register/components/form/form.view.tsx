@@ -20,7 +20,7 @@ interface RegisterMovementFormViewProps {
   onCancel: () => void;
   isPending: boolean;
   methods: UseFormReturn<RegisterMovementFormValues>;
-  watchedType: 'deposit' | 'withdrawal' | 'transfer';
+  watchedType: 'deposit' | 'withdraw' | 'transfer';
   movementTypeOptions: { value: string; label: string }[];
   accountsData: Account.IListAccountItem[];
   destinationAccounts: Account.IListAccountItem[];
@@ -52,8 +52,8 @@ const RegisterMovementFormView: React.FC<RegisterMovementFormViewProps> = ({
   };
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Paper elevation={2} sx={{ p: 4 }}>
+    <Box sx={{ p: { xs: 1, md: 3 } }}>
+      <Paper elevation={2} sx={{ p: { xs: 2, md: 4 } }}>
         <Typography variant="h4" gutterBottom color='primary.main'>
           Registrar Movimentação Financeira
         </Typography>
@@ -227,7 +227,7 @@ const RegisterMovementFormView: React.FC<RegisterMovementFormViewProps> = ({
             </Box>
           </FormProvider>
 
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end', mt: 4 }}>
+          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end', mt: { xs: 2, md: 4 }, flexDirection: { xs: 'column', md: 'row' } }}>
             <Button
               variant="outlined"
               onClick={onCancel}

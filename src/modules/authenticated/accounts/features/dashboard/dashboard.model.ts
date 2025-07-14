@@ -7,7 +7,6 @@ export const useAccountDashboardModel = () => {
   const [showCreateAccountModal, setShowCreateAccountModal] = useState<boolean>(false);
 
   const orderOptions: Option[] = [
-    { value: 'balance', label: 'Saldo' },
     { value: 'name', label: 'Nome' },
     { value: 'accountNumber', label: 'Número da Conta' },
   ];

@@ -15,7 +15,7 @@ export namespace Movement {
 
   export type IListMovementsResponse = IPaginatedResponse<IListMovementItem>;
 
-  export type MovementType = 'deposit' | 'withdrawal' | 'transfer';
+  export type MovementType = 'deposit' | 'withdraw' | 'transfer';
 
   export type IRegisterMovementRequest = {
     type: MovementType;

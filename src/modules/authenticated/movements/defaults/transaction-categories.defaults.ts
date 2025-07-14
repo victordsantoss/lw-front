@@ -2,7 +2,7 @@ import { TransactionCategory } from '@/common/enums/transaction.enum';
 
 export const TRANSACTION_CATEGORY_LABELS = {
   [TransactionCategory.DEPOSIT]: 'Depósito',
-  [TransactionCategory.WITHDRAWAL]: 'Saque',
+  [TransactionCategory.WITHDRAW]: 'Saque',
   [TransactionCategory.TRANSFER]: 'Transferência',
   [TransactionCategory.PAYMENT]: 'Pagamento',
   [TransactionCategory.FEE]: 'Taxa',
@@ -13,7 +13,7 @@ export const TRANSACTION_CATEGORY_LABELS = {
 
 export const TRANSACTION_CATEGORY_DESCRIPTIONS = {
   [TransactionCategory.DEPOSIT]: 'Depósito',
-  [TransactionCategory.WITHDRAWAL]: 'Saque',
+  [TransactionCategory.WITHDRAW]: 'Saque',
   [TransactionCategory.TRANSFER]: 'Transferência',
   [TransactionCategory.PAYMENT]: 'Pagamento',
   [TransactionCategory.FEE]: 'Taxa',
@@ -29,8 +29,8 @@ export const TRANSACTION_CATEGORY_OPTIONS = [
     description: TRANSACTION_CATEGORY_DESCRIPTIONS[TransactionCategory.DEPOSIT],
   },
   {
-    value: TransactionCategory.WITHDRAWAL,
-    label: TRANSACTION_CATEGORY_LABELS[TransactionCategory.WITHDRAWAL],
-    description: TRANSACTION_CATEGORY_DESCRIPTIONS[TransactionCategory.WITHDRAWAL],
+    value: TransactionCategory.WITHDRAW,
+    label: TRANSACTION_CATEGORY_LABELS[TransactionCategory.WITHDRAW],
+    description: TRANSACTION_CATEGORY_DESCRIPTIONS[TransactionCategory.WITHDRAW],
   },
 ] as const;

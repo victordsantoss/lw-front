@@ -32,7 +32,7 @@ export const useAccountTableCardModel = () => {
 
   const handleWithdraw = (accountId: string) => {
     handleClosePopover();
-    router.push(`/movements/register?type=withdrawal&accountId=${accountId}`);
+    router.push(`/movements/register?type=withdraw&accountId=${accountId}`);
   };
 
   return {
