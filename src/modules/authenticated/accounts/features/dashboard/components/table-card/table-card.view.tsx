@@ -18,8 +18,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Account } from '@/modules/authenticated/accounts/services/accounts/accounts.types';
 import { Format } from '@/common/utils/format';
-import { AccountStatus, AccountType } from '@/common/enums/account.enum';
-import { ACCOUNT_STATUS_DESCRIPTIONS, ACCOUNT_STATUS_LABELS } from '@/modules/authenticated/accounts/defaults/account-status.defaults';
+import { AccountStatus } from '@/common/enums/account.enum';
+import { ACCOUNT_STATUS_LABELS } from '@/modules/authenticated/accounts/defaults/account-status.defaults';
 import { ACCOUNT_TYPE_LABELS } from '@/modules/authenticated/accounts/defaults/account-types.defaults';
 
 interface IAccountTableCardViewProps {
@@ -116,7 +116,7 @@ const AccountTableCardView = ({
               <AddShoppingCartIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="Fazer pedido"
+              primary="Visualizar Lançamentos"
               sx={{
                 color: 'primary.main',
               }}
@@ -127,7 +127,7 @@ const AccountTableCardView = ({
               <VisibilityIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="Visualizar"
+              primary="Adicionar Saldo"
               sx={{
                 color: 'primary.main',
               }}
@@ -138,7 +138,7 @@ const AccountTableCardView = ({
               <EditIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="Editar"
+              primary="Realizar Débito"
               sx={{
                 color: 'primary.main',
               }}
@@ -149,7 +149,7 @@ const AccountTableCardView = ({
               <DeleteIcon color="error" />
             </ListItemIcon>
             <ListItemText
-              primary="Excluir"
+              primary="Realizar Transferência"
               sx={{
                 color: 'error.main',
               }}

@@ -8,7 +8,8 @@ export const useAccountDashboardModel = () => {
 
   const orderOptions: Option[] = [
     { value: 'balance', label: 'Saldo' },
-    { value: 'updatedAt', label: 'Última Atualização' },
+    { value: 'name', label: 'Nome' },
+    { value: 'accountNumber', label: 'Número da Conta' },
   ];
 
   const onRegisterClick = () => setShowCreateAccountModal(true);

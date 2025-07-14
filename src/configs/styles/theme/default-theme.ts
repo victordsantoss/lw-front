@@ -12,11 +12,11 @@ const defaultTheme = createTheme({
     },
     secondary: {
       main: '#F66E13',
-      contrastText: '#F3F2EF',
+      contrastText: '#111',
     },
     text: {
       primary: '#FFFFFF',
-      secondary: '#D8D1BE',
+      secondary: '#333',
     },
     background: {
       default: '#EAEAEA',
