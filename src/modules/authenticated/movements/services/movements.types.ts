@@ -1,7 +1,6 @@
 import { AccountModelStatement } from '@/common/models/account-statement.entity';
 import { IPaginatedRequest, IPaginatedResponse } from '@/common/types/base-pagination.types';
 
-
 export namespace Movement {
   export type IListMovementsRequest = IPaginatedRequest;
 

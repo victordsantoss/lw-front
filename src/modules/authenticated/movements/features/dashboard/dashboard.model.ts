@@ -12,7 +12,7 @@ export const useMovementDashboardModel = () => {
 
   const onRegisterClick = () => {
     console.log('onRegisterClick');
-  }
+  };
 
   return {
     orderOptions,

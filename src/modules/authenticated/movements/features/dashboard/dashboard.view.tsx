@@ -6,21 +6,17 @@ import { Option } from '@/components/filter/filter.types';
 import { Movement } from '../../services/movements.types';
 import TableViewModel from '@/components/table';
 import MovementTableCardViewModel from './components/table-card';
-
+import AdvancedFilterViewModel from './components/advanced-filter';
 
 interface IMovementDashboardViewProps {
   content: Movement.IListMovementsResponse;
   orderOptions: Option[];
-  showAlert: boolean;
-  setShowAlert: (showAlert: boolean) => void;
   onRegisterClick: () => void;
 }
 
 export const MovementDashboardView = ({
   content,
   orderOptions,
-  showAlert,
-  setShowAlert,
   onRegisterClick,
 }: IMovementDashboardViewProps) => {
   return (
@@ -30,11 +26,14 @@ export const MovementDashboardView = ({
           searchPlaceholder="Pesquisar por Nome ou Número da Conta"
           onRegisterClick={onRegisterClick}
           orderOptions={orderOptions}
+          AdvancedFilter={<AdvancedFilterViewModel />}
         />
       </Box>
 
       <TableViewModel
-        renderItem={(item: Movement.IListMovementItem) => <MovementTableCardViewModel item={item} />}
+        renderItem={(item: Movement.IListMovementItem) => (
+          <MovementTableCardViewModel item={item} />
+        )}
         content={content}
         itemSize={{
           xs: '100%',

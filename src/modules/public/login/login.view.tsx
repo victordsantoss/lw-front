@@ -1,8 +1,6 @@
 import { Box, Divider, Typography } from '@mui/material';
 import { defaultContainerStyles } from '@/common/utils/styles';
 
-import PetsIcon from '@mui/icons-material/Pets';
-import Image from 'next/image';
 import { authFormStyles } from '../styles';
 import { loginFormStyles } from './styles';
 

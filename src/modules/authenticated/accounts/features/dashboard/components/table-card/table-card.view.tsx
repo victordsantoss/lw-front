@@ -12,16 +12,15 @@ import {
   Typography,
 } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Account } from '@/modules/authenticated/accounts/services/accounts/accounts.types';
 import { Format } from '@/common/utils/format';
 import { AccountStatus } from '@/common/enums/account.enum';
 import { ACCOUNT_STATUS_LABELS } from '@/modules/authenticated/accounts/defaults/account-status.defaults';
 import { ACCOUNT_TYPE_LABELS } from '@/modules/authenticated/accounts/defaults/account-types.defaults';
-
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import MoveDownIcon from '@mui/icons-material/MoveDown';
+import PaidIcon from '@mui/icons-material/Paid';
+import SummarizeIcon from '@mui/icons-material/Summarize';
 interface IAccountTableCardViewProps {
   item: Account.IListAccountItem;
   anchorEl: HTMLButtonElement | null;
@@ -62,9 +61,19 @@ const AccountTableCardView = ({
           <Typography variant="h6" fontWeight={700} color="primary">
             {item.accountNumber}
           </Typography>
-          <Box display='flex' gap={1}>
-            <Chip variant="outlined" label={ACCOUNT_TYPE_LABELS[item.accountType]} color='primary' size='small' />
-            <Chip variant="outlined" label={ACCOUNT_STATUS_LABELS[item.status]} color={item.status === AccountStatus.ACTIVE ? 'success' : 'error'} size='small' />
+          <Box display="flex" gap={1}>
+            <Chip
+              variant="outlined"
+              label={ACCOUNT_TYPE_LABELS[item.accountType]}
+              color="primary"
+              size="small"
+            />
+            <Chip
+              variant="outlined"
+              label={ACCOUNT_STATUS_LABELS[item.status]}
+              color={item.status === AccountStatus.ACTIVE ? 'success' : 'error'}
+              size="small"
+            />
           </Box>
         </Box>
         <Typography variant="body2">
@@ -113,7 +122,7 @@ const AccountTableCardView = ({
         >
           <ListItemButton onClick={() => onView(item.id)}>
             <ListItemIcon>
-              <AddShoppingCartIcon color="primary" />
+              <SummarizeIcon color="primary" />
             </ListItemIcon>
             <ListItemText
               primary="Visualizar Lançamentos"
@@ -122,36 +131,36 @@ const AccountTableCardView = ({
               }}
             />
           </ListItemButton>
-          <ListItemButton onClick={() => onView(item.id)} disabled>
+          <ListItemButton onClick={() => onView(item.id)}>
             <ListItemIcon>
-              <VisibilityIcon color="primary" />
+              <AccountBalanceWalletIcon color="success" />
             </ListItemIcon>
             <ListItemText
               primary="Adicionar Saldo"
               sx={{
-                color: 'primary.main',
+                color: 'success.main',
               }}
             />
           </ListItemButton>
-          <ListItemButton onClick={() => onEdit(item.id)} disabled>
+          <ListItemButton onClick={() => onEdit(item.id)}>
             <ListItemIcon>
-              <EditIcon color="primary" />
+              <PaidIcon color="error" />
             </ListItemIcon>
             <ListItemText
               primary="Realizar Débito"
               sx={{
-                color: 'primary.main',
+                color: 'error.main',
               }}
             />
           </ListItemButton>
-          <ListItemButton onClick={() => onDelete(item.id)} disabled>
+          <ListItemButton onClick={() => onDelete(item.id)}>
             <ListItemIcon>
-              <DeleteIcon color="error" />
+              <MoveDownIcon color="primary" />
             </ListItemIcon>
             <ListItemText
               primary="Realizar Transferência"
               sx={{
-                color: 'error.main',
+                color: 'primary.main',
               }}
             />
           </ListItemButton>

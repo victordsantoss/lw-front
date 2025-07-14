@@ -1,4 +1,4 @@
-import { TransactionCategory } from "@/common/enums/transaction.enum";
+import { TransactionCategory } from '@/common/enums/transaction.enum';
 
 export const TRANSACTION_CATEGORY_LABELS = {
   [TransactionCategory.DEPOSIT]: 'Depósito',

@@ -1,14 +1,12 @@
 import { Alert, Box, IconButton, Typography } from '@mui/material';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
-import { IPaginatedResponse } from '@/common/types/base-pagination.types';
 import FilterViewModel from '@/components/filter';
 import { Option } from '@/components/filter/filter.types';
 import TableViewModel from '@/components/table';
 import AccountTableCardViewModel from './components/table-card';
 import CloseIcon from '@mui/icons-material/Close';
 import dynamic from 'next/dynamic';
-import { AccountModel } from '@/common/models/account.model';
 import { Account } from '@/modules/authenticated/accounts/services/accounts/accounts.types';
 
 const AccountRegistrationModalViewModel = dynamic(

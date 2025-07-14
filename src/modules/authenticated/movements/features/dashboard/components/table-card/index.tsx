@@ -1,4 +1,3 @@
-
 import { useMovementTableCardModel } from './table-card.model';
 import { Movement } from '@/modules/authenticated/movements/services/movements.types';
 import MovementTableCardView from './table-card.view';
