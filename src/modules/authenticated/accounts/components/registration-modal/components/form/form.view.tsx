@@ -5,7 +5,7 @@ import { Box, Button, TextField, Autocomplete, Tooltip, CircularProgress } from 
 import { Controller, FormProvider, UseFormReturn } from 'react-hook-form';
 import { RegistrationAccountFormValues } from './form.schema';
 import { formStyles } from '@/common/utils/styles';
-import { ACCOUNT_TYPE_OPTIONS } from '@/modules/authenticated/accounts/defaults';
+import { ACCOUNT_TYPE_OPTIONS } from '@/modules/authenticated/accounts/defaults/account-types.defaults';
 
 interface RegistrationAccountFormViewProps {
   closeCreateAccountModal: () => void;

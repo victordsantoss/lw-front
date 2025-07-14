@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export const useAccountTableCardModel = () => {
+  const router = useRouter();
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
@@ -13,15 +15,24 @@ export const useAccountTableCardModel = () => {
     setAnchorEl(null);
   };
 
-  const onView = (id: string) => {
-    console.log(id);
-  };
-  const onEdit = (id: string) => {
-    console.log(id);
+  const handleView = (accountId: string) => {
+    handleClosePopover();
+    router.push(`/movements?accountId=${accountId}`);
   };
 
-  const onDelete = (id: string) => {
-    console.log(id);
+  const handleAddBalance = (accountId: string) => {
+    handleClosePopover();
+    router.push(`/movements/register?type=deposit&accountId=${accountId}`);
+  };
+
+  const handleTransfer = (accountId: string) => {
+    handleClosePopover();
+    router.push(`/movements/register?type=transfer&accountId=${accountId}`);
+  };
+
+  const handleWithdraw = (accountId: string) => {
+    handleClosePopover();
+    router.push(`/movements/register?type=withdraw&accountId=${accountId}`);
   };
 
   return {
@@ -30,8 +41,9 @@ export const useAccountTableCardModel = () => {
     handleClosePopover,
     open,
     id,
-    onView,
-    onEdit,
-    onDelete,
+    handleView,
+    handleAddBalance,
+    handleTransfer,
+    handleWithdraw,
   };
 };

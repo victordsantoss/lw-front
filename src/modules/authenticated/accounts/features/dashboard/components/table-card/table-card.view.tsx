@@ -12,16 +12,15 @@ import {
   Typography,
 } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Account } from '@/modules/authenticated/accounts/services/accounts/accounts.types';
 import { Format } from '@/common/utils/format';
-import { AccountStatus, AccountType } from '@/common/enums/account.enum';
-import { ACCOUNT_STATUS_DESCRIPTIONS, ACCOUNT_STATUS_LABELS } from '@/modules/authenticated/accounts/defaults/account-status.defaults';
+import { AccountStatus } from '@/common/enums/account.enum';
+import { ACCOUNT_STATUS_LABELS } from '@/modules/authenticated/accounts/defaults/account-status.defaults';
 import { ACCOUNT_TYPE_LABELS } from '@/modules/authenticated/accounts/defaults/account-types.defaults';
-
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import MoveDownIcon from '@mui/icons-material/MoveDown';
+import PaidIcon from '@mui/icons-material/Paid';
+import SummarizeIcon from '@mui/icons-material/Summarize';
 interface IAccountTableCardViewProps {
   item: Account.IListAccountItem;
   anchorEl: HTMLButtonElement | null;
@@ -29,9 +28,10 @@ interface IAccountTableCardViewProps {
   handleClosePopover: () => void;
   open: boolean;
   id: string | undefined;
-  onView: (id: string) => void;
-  onEdit: (id: string) => void;
-  onDelete: (id: string) => void;
+  handleView: (id: string) => void;
+  handleAddBalance: (id: string) => void;
+  handleTransfer: (id: string) => void;
+  handleWithdraw: (id: string) => void;
 }
 
 const AccountTableCardView = ({
@@ -41,9 +41,10 @@ const AccountTableCardView = ({
   handleClosePopover,
   open,
   id,
-  onView,
-  onEdit,
-  onDelete,
+  handleView,
+  handleAddBalance,
+  handleTransfer,
+  handleWithdraw,
 }: IAccountTableCardViewProps) => {
   console.log(item);
   return (
@@ -62,9 +63,19 @@ const AccountTableCardView = ({
           <Typography variant="h6" fontWeight={700} color="primary">
             {item.accountNumber}
           </Typography>
-          <Box display='flex' gap={1}>
-            <Chip variant="outlined" label={ACCOUNT_TYPE_LABELS[item.accountType]} color='primary' size='small' />
-            <Chip variant="outlined" label={ACCOUNT_STATUS_LABELS[item.status]} color={item.status === AccountStatus.ACTIVE ? 'success' : 'error'} size='small' />
+          <Box display="flex" gap={1}>
+            <Chip
+              variant="outlined"
+              label={ACCOUNT_TYPE_LABELS[item.accountType]}
+              color="primary"
+              size="small"
+            />
+            <Chip
+              variant="outlined"
+              label={ACCOUNT_STATUS_LABELS[item.status]}
+              color={item.status === AccountStatus.ACTIVE ? 'success' : 'error'}
+              size="small"
+            />
           </Box>
         </Box>
         <Typography variant="body2">
@@ -111,45 +122,45 @@ const AccountTableCardView = ({
           component="nav"
           aria-labelledby="nested-list-subheader"
         >
-          <ListItemButton onClick={() => onView(item.id)}>
+          <ListItemButton onClick={() => handleView(item.id)}>
             <ListItemIcon>
-              <AddShoppingCartIcon color="primary" />
+              <SummarizeIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="Fazer pedido"
+              primary="Visualizar Lançamentos"
               sx={{
                 color: 'primary.main',
               }}
             />
           </ListItemButton>
-          <ListItemButton onClick={() => onView(item.id)} disabled>
+          <ListItemButton onClick={() => handleAddBalance(item.id)}>
             <ListItemIcon>
-              <VisibilityIcon color="primary" />
+              <AccountBalanceWalletIcon color="success" />
             </ListItemIcon>
             <ListItemText
-              primary="Visualizar"
+              primary="Fazer Depósito"
               sx={{
-                color: 'primary.main',
+                color: 'success.main',
               }}
             />
           </ListItemButton>
-          <ListItemButton onClick={() => onEdit(item.id)} disabled>
+          <ListItemButton onClick={() => handleTransfer(item.id)}>
             <ListItemIcon>
-              <EditIcon color="primary" />
+              <PaidIcon color="warning" />
             </ListItemIcon>
             <ListItemText
-              primary="Editar"
+              primary="Fazer Transferência"
               sx={{
-                color: 'primary.main',
+                color: 'warning.main',
               }}
             />
           </ListItemButton>
-          <ListItemButton onClick={() => onDelete(item.id)} disabled>
+          <ListItemButton onClick={() => handleWithdraw(item.id)}>
             <ListItemIcon>
-              <DeleteIcon color="error" />
+              <MoveDownIcon color="error" />
             </ListItemIcon>
             <ListItemText
-              primary="Excluir"
+              primary="Fazer Saque"
               sx={{
                 color: 'error.main',
               }}

@@ -184,8 +184,8 @@ export const FilterView = ({
           </IconButton>
         </Box>
       </Divider>
-      <Collapse in={showAdvancedFilters} timeout="auto">
-        <Box display="flex" alignItems="center" gap={{ xs: 1, md: 2 }}>
+      <Collapse in={showAdvancedFilters} timeout="auto" sx={{ width: '100%' }}>
+        <Box display="flex" alignItems="center" gap={{ xs: 1, md: 2 }} width={'100%'} pb={2}>
           {AdvancedFilter}
         </Box>
       </Collapse>

@@ -19,11 +19,6 @@ export const menuItems: IMenuItem[] = [
   {
     text: 'Movimentações',
     icon: <InventoryIcon />,
-    url: '',
-    items: [
-      { text: 'Depósitos', url: '/deposits/dashboard' },
-      { text: 'Saques', url: '/withdrawals/dashboard' },
-      { text: 'Transferências', url: '/transfers/dashboard' },
-    ],
+    url: '/movements',
   },
 ];
