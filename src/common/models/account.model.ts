@@ -1,9 +1,9 @@
 import { AccountStatus, AccountType } from '../enums/account.enum';
-import { AccountStatement } from './account-statement.entity';
+import { AccountModelStatement } from './account-statement.entity';
 
-
-export interface Account {
+export interface AccountModel {
   id: string;
+  name?: string;
   accountNumber: string;
   agency: string;
   accountType: AccountType;
@@ -13,9 +13,5 @@ export interface Account {
   createdAt: Date;
   updatedAt: Date;
   deletedAt?: Date;
-  user: {
-    id: string;
-    accounts?: Account[];
-  };
-  statements: AccountStatement[];
-} 
+  statements: AccountModelStatement[];
+}
