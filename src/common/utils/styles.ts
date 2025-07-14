@@ -23,6 +23,7 @@ const formStyles: {
   formContainer: {
     display: 'flex',
     flexDirection: 'column',
+    py: 2,
     gap: { xs: 1, md: 2 },
   },
   buttonContainer: {
